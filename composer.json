@@ -1,0 +1,68 @@
+{
+    "name": "superinteractive/statamic-super-location",
+    "type": "statamic-addon",
+    "description": "Super Location is a Statamic fieldtype powered by OpenStreetMap search and map tiles.",
+    "license": "MIT",
+    "keywords": [
+        "statamic",
+        "statamic addon",
+        "fieldtype",
+        "map",
+        "openstreetmap"
+    ],
+    "autoload": {
+        "psr-4": {
+            "SuperInteractive\\SuperLocation\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SuperInteractive\\SuperLocation\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": "^8.4",
+        "illuminate/support": "^10.0 || ^11.0 || ^12.0 || ^13.0",
+        "statamic/cms": "^5.0 || ^6.0"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.24",
+        "orchestra/testbench": "^8.36 || ^9.15 || ^10.8 || ^11.0",
+        "pestphp/pest": "^2.36 || ^3.8 || ^4.0",
+        "pestphp/pest-plugin-laravel": "^2.4 || ^3.0 || ^4.0",
+        "phpunit/phpunit": "^10.5 || ^11.5 || ^12.5 || ^13.0"
+    },
+    "authors": [
+        {
+            "name": "Super Interactive",
+            "email": "hello@superinteractive.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "SuperInteractive\\SuperLocation\\ServiceProvider"
+            ]
+        },
+        "statamic": {
+            "name": "Super Location Field",
+            "description": "Drop-in location fieldtype with autocomplete search."
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "php-http/discovery": true,
+            "pixelfear/composer-dist-plugin": true
+        }
+    },
+    "scripts": {
+        "pint": "vendor/bin/pint",
+        "test": "vendor/bin/pest"
+    },
+    "support": {
+        "issues": "https://github.com/superinteractive/statamic-super-location/issues",
+        "source": "https://github.com/superinteractive/statamic-super-location"
+    }
+}
