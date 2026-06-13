@@ -4,8 +4,9 @@
 
 Add a new field within your blueprint and select the **Super Location** fieldtype. You can optionally override:
 
-- Default latitude / longitude used to center the map when no selection has been made.
+- Default latitude and longitude used to center the map when no selection has been made.
 - Default zoom level for the Leaflet map.
+- Result language used by the autocomplete search endpoint.
 
 ## Template Output
 
@@ -18,8 +19,8 @@ location:
   city: "Amsterdam"
   state: "North Holland"
   country: "Netherlands"
-  latitude: "52.3731692"
-  longitude: "4.8906591"
+  latitude: "52.373169"
+  longitude: "4.890659"
 ```
 
 You can render the result using Antlers or Blade:
@@ -32,12 +33,18 @@ You can render the result using Antlers or Blade:
 </address>
 ```
 
-```php
+```blade
 {{ $entry->location['latitude'] }}, {{ $entry->location['longitude'] }}
 ```
 
 ## Map + Search Behavior
 
-- The search field debounces requests to the Nominatim API to avoid rate-limit issues.
-- Selecting a suggestion moves the map marker, fills the sub-fields, and keeps the map’s center aligned with the new coordinates.
-- Manual edits to the inputs are also reflected in the field value when the blueprint is saved.
+- The search field debounces requests to the configured search endpoint to reduce rate-limit pressure.
+- Selecting a suggestion moves the map marker, fills the sub-fields, and keeps the map center aligned with the selected coordinates.
+- Dragging the marker updates latitude and longitude.
+- Clearing a selection removes the marker and resets the stored value shape to the fieldtype defaults.
+- In read-only mode, search, clearing, map dragging, and scroll-wheel zoom are disabled.
+
+## Control Panel Themes
+
+The fieldtype uses scoped CSS variables under `.super-location-fieldtype` and `.dark .super-location-fieldtype`. It does not depend on project Tailwind classes, so it follows Statamic 6 light and dark Control Panel modes without leaking styles into other fields.

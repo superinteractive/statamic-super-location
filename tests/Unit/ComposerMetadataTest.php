@@ -20,19 +20,19 @@ function superLocationComposerMetadata(): array
     return $composer;
 }
 
-it('declares starter kit compatible package metadata and discovery', function (): void {
+it('declares Statamic 6 compatible package metadata and discovery', function (): void {
     $composer = superLocationComposerMetadata();
 
     expect($composer['name'])->toBe('superinteractive/statamic-super-location')
         ->and($composer['type'])->toBe('statamic-addon')
         ->and($composer)->not->toHaveKey('version')
-        ->and($composer['require']['php'])->toBe('^8.4')
-        ->and($composer['require']['illuminate/support'])->toBe('^10.0 || ^11.0 || ^12.0 || ^13.0')
-        ->and($composer['require']['statamic/cms'])->toBe('^5.0 || ^6.0')
-        ->and($composer['require-dev']['orchestra/testbench'])->toBe('^8.36 || ^9.15 || ^10.8 || ^11.0')
-        ->and($composer['require-dev']['pestphp/pest'])->toBe('^2.36 || ^3.8 || ^4.0')
-        ->and($composer['require-dev']['pestphp/pest-plugin-laravel'])->toBe('^2.4 || ^3.0 || ^4.0')
-        ->and($composer['require-dev']['phpunit/phpunit'])->toBe('^10.5 || ^11.5 || ^12.5 || ^13.0')
+        ->and($composer['require']['php'])->toBe('^8.3')
+        ->and($composer['require']['illuminate/support'])->toBe('^12.0 || ^13.0')
+        ->and($composer['require']['statamic/cms'])->toBe('^6.0')
+        ->and($composer['require-dev']['orchestra/testbench'])->toBe('^10.8 || ^11.0')
+        ->and($composer['require-dev']['pestphp/pest'])->toBe('^3.8 || ^4.0')
+        ->and($composer['require-dev']['pestphp/pest-plugin-laravel'])->toBe('^3.0 || ^4.0')
+        ->and($composer['require-dev']['phpunit/phpunit'])->toBe('^11.5 || ^12.5 || ^13.0')
         ->and($composer['autoload']['psr-4'])->toHaveKey('SuperInteractive\\SuperLocation\\')
         ->and($composer['autoload-dev']['psr-4'])->toHaveKey('SuperInteractive\\SuperLocation\\Tests\\')
         ->and($composer['extra']['laravel']['providers'])->toBe([

@@ -1,0 +1,15 @@
+/.cymbal export-ignore
+/.fleet export-ignore
+/.idea export-ignore
+/.phpunit.cache export-ignore
+/.vscode export-ignore
+/auth.json export-ignore
+/composer.lock export-ignore
+/docs/superpowers export-ignore
+/Homestead.json export-ignore
+/Homestead.yaml export-ignore
+/node_modules export-ignore
+/npm-debug.log export-ignore
+/package-lock.json export-ignore
+/vendor export-ignore
+/yarn-error.log export-ignore
